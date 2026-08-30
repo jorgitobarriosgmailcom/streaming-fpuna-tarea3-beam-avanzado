@@ -377,11 +377,21 @@ def _(Any, beam):
 
         Configurar un pane on-time por watermark, una estimación early por
         processing time, revisiones late y modo ACCUMULATING.
+
+        El proyecto base inspecciona ``.seconds`` en las duraciones. Apache Beam
+        2.74 almacena esas duraciones en ``Duration.micros`` y no expone ese
+        atributo. Se añade una propiedad de compatibilidad a ``Duration`` para
+        conservar el contrato esperado por los tests sin alterar la semántica.
         """
+        from apache_beam.utils.timestamp import Duration
+
         if window_seconds <= 0:
             raise ValueError("window_seconds debe ser mayor que cero")
         if allowed_lateness_seconds < 0:
             raise ValueError("allowed_lateness_seconds no puede ser negativo")
+
+        if not hasattr(Duration, "seconds"):
+            Duration.seconds = property(lambda self: self.micros // 1_000_000)
 
         return beam.WindowInto(
             beam.window.FixedWindows(window_seconds),
