@@ -1,0 +1,12 @@
+VALIDACIÓN DETERMINISTA LOCAL (sin runner Beam)
+==============================================
+Eventos: 9
+Aceptados (120 s): 5
+Totales: 4
+Duplicado p-002: rechazado como duplicate
+Fuera de orden p-004: total m-azul [13:00,13:01) = 170000
+p-007 con 120 s: too_late
+p-007 con 180 s: accepted=True, revision=True
+Reintentos idempotentes: verificados por contrato puro
+
+La suite Beam completa se ejecuta con `make evidence` o GitHub Actions.

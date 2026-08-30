@@ -1,0 +1,132 @@
+{
+  "input_events": 9,
+  "accepted_default": 5,
+  "totals_default": [
+    {
+      "merchant_id": "m-azul",
+      "window_start": "2026-07-24T13:00:00+00:00",
+      "window_end": "2026-07-24T13:01:00+00:00",
+      "total": 170000
+    },
+    {
+      "merchant_id": "m-azul",
+      "window_start": "2026-07-24T13:02:00+00:00",
+      "window_end": "2026-07-24T13:03:00+00:00",
+      "total": 200000
+    },
+    {
+      "merchant_id": "m-verde",
+      "window_start": "2026-07-24T13:00:00+00:00",
+      "window_end": "2026-07-24T13:01:00+00:00",
+      "total": 80000
+    },
+    {
+      "merchant_id": "m-verde",
+      "window_start": "2026-07-24T13:01:00+00:00",
+      "window_end": "2026-07-24T13:02:00+00:00",
+      "total": 90000
+    }
+  ],
+  "audit_default": [
+    {
+      "event_id": "p-001",
+      "merchant_id": "m-azul",
+      "delay_seconds": 1.0,
+      "duplicate": false,
+      "too_late": false,
+      "accepted": true,
+      "revision": false,
+      "reason": "accepted"
+    },
+    {
+      "event_id": "p-002",
+      "merchant_id": "m-verde",
+      "delay_seconds": 2.0,
+      "duplicate": false,
+      "too_late": false,
+      "accepted": true,
+      "revision": false,
+      "reason": "accepted"
+    },
+    {
+      "event_id": "p-003",
+      "merchant_id": "m-azul",
+      "delay_seconds": 2.0,
+      "duplicate": false,
+      "too_late": false,
+      "accepted": false,
+      "revision": false,
+      "reason": "not_confirmed"
+    },
+    {
+      "event_id": "p-004",
+      "merchant_id": "m-azul",
+      "delay_seconds": 53.0,
+      "duplicate": false,
+      "too_late": false,
+      "accepted": true,
+      "revision": true,
+      "reason": "accepted"
+    },
+    {
+      "event_id": "p-002",
+      "merchant_id": "m-verde",
+      "delay_seconds": 83.0,
+      "duplicate": true,
+      "too_late": false,
+      "accepted": false,
+      "revision": false,
+      "reason": "duplicate"
+    },
+    {
+      "event_id": "p-005",
+      "merchant_id": "m-verde",
+      "delay_seconds": 2.0,
+      "duplicate": false,
+      "too_late": false,
+      "accepted": true,
+      "revision": false,
+      "reason": "accepted"
+    },
+    {
+      "event_id": "p-006",
+      "merchant_id": "m-azul",
+      "delay_seconds": 1.0,
+      "duplicate": false,
+      "too_late": false,
+      "accepted": true,
+      "revision": false,
+      "reason": "accepted"
+    },
+    {
+      "event_id": "p-007",
+      "merchant_id": "m-verde",
+      "delay_seconds": 169.0,
+      "duplicate": false,
+      "too_late": true,
+      "accepted": false,
+      "revision": false,
+      "reason": "too_late"
+    },
+    {
+      "event_id": "p-008",
+      "merchant_id": "m-azul",
+      "delay_seconds": 3.0,
+      "duplicate": false,
+      "too_late": false,
+      "accepted": false,
+      "revision": false,
+      "reason": "not_confirmed"
+    }
+  ],
+  "p007_with_180_seconds": {
+    "event_id": "p-007",
+    "merchant_id": "m-verde",
+    "delay_seconds": 169.0,
+    "duplicate": false,
+    "too_late": false,
+    "accepted": true,
+    "revision": true,
+    "reason": "accepted"
+  }
+}

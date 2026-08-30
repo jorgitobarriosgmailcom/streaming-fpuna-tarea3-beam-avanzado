@@ -1,0 +1,32 @@
+name: Tarea 3 - validacion
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Instalar uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+
+      - name: Instalar Python 3.12
+        run: uv python install 3.12
+
+      - name: Sincronizar dependencias
+        run: uv sync --frozen
+
+      - name: Ejecutar pruebas
+        run: uv run pytest -q
+
+      - name: Validar Ruff
+        run: uv run ruff check notebook.py
+
+      - name: Validar Marimo
+        run: uv run marimo check --strict notebook.py
